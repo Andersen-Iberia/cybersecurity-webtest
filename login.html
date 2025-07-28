@@ -34,7 +34,8 @@
       margin: 0 0 10px;
       font-size: 20px;
     }
-    input[type="text"], input[type="email"] {
+    input[type="email"],
+    input[type="password"] {
       width: 100%;
       padding: 10px;
       margin: 10px 0 20px;
@@ -66,17 +67,54 @@
 <body>
   <div class="container">
     <div class="logo">
-      <!-- Logo Microsoft alternativo desde Wikimedia Commons -->
       <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" />
     </div>
-    <h2>Iniciar sesión</h2>
-    <p>Introduce tu dirección de correo electrónico, teléfono o nombre de Skype.</p>
-    <form onsubmit="event.preventDefault(); alert('⚠️ ¡Te pillé!\\n\\nEsta es una simulación de phishing para concienciación en ciberseguridad.\\nNunca introduzcas tus credenciales sin verificar la URL.');">
-      <input type="email" placeholder="ejemplo@outlook.com" required />
+    <h2 id="form-title">Iniciar sesión</h2>
+    
+    <!-- Formulario para email -->
+    <form id="email-form">
+      <p>Introduce tu dirección de correo electrónico, teléfono o nombre de Skype.</p>
+      <input type="email" id="email-input" placeholder="ejemplo@outlook.com" required />
       <button class="btn" type="submit">Siguiente</button>
     </form>
+    
+    <!-- Formulario para contraseña, oculto inicialmente -->
+    <form id="password-form" style="display:none;">
+      <p>Introduce la contraseña para <span id="display-email"></span></p>
+      <input type="password" id="password-input" placeholder="Contraseña" required />
+      <button class="btn" type="submit">Iniciar sesión</button>
+    </form>
+
     <div class="footer">© Microsoft Corporation</div>
   </div>
+
+  <script>
+    const emailForm = document.getElementById('email-form');
+    const passwordForm = document.getElementById('password-form');
+    const displayEmail = document.getElementById('display-email');
+    const formTitle = document.getElementById('form-title');
+
+    emailForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const emailValue = document.getElementById('email-input').value.trim();
+      if (emailValue) {
+        // Mostrar email en el form de contraseña
+        displayEmail.textContent = emailValue;
+
+        // Cambiar título
+        formTitle.textContent = 'Introduce la contraseña';
+
+        // Ocultar form email y mostrar form contraseña
+        emailForm.style.display = 'none';
+        passwordForm.style.display = 'block';
+      }
+    });
+
+    passwordForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      // Aquí redirigimos a owned.html sin validar la contraseña (como pediste)
+      window.location.href = 'owned.html';
+    });
+  </script>
 </body>
 </html>
-
