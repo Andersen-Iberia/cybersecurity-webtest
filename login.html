@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Iniciar sesión en tu cuenta de Microsoft</title>
+  <style>
+    body {
+      margin: 0;
+      background: #f3f3f3;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: white;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+      border-radius: 6px;
+      padding: 40px;
+      box-sizing: border-box;
+    }
+    .logo {
+      margin-bottom: 30px;
+    }
+    .logo img {
+      width: 108px;
+    }
+    h2 {
+      font-weight: normal;
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+    input[type="text"], input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0 20px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+    .btn {
+      background-color: #0067b8;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .btn:hover {
+      background-color: #005ba1;
+    }
+    .footer {
+      font-size: 12px;
+      color: gray;
+      margin-top: 30px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <!-- Logo Microsoft alternativo desde Wikimedia Commons -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" />
+    </div>
+    <h2>Iniciar sesión</h2>
+    <p>Introduce tu dirección de correo electrónico, teléfono o nombre de Skype.</p>
+    <form onsubmit="event.preventDefault(); alert('⚠️ ¡Te pillé!\\n\\nEsta es una simulación de phishing para concienciación en ciberseguridad.\\nNunca introduzcas tus credenciales sin verificar la URL.');">
+      <input type="email" placeholder="ejemplo@outlook.com" required />
+      <button class="btn" type="submit">Siguiente</button>
+    </form>
+    <div class="footer">© Microsoft Corporation</div>
+  </div>
+</body>
+</html>
+
